@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebLoginWizard.Models;
 using WebLoginWizard.Server;
 
 namespace WebLoginWizard.Controllers
@@ -18,9 +19,12 @@ namespace WebLoginWizard.Controllers
             _contextAccessor = contextAccessor;
         }
 
-        [HttpGet("/api/Server/Email/{email}/Number/{number}")]
-        public IActionResult ValidateData(string email, string number)
+        [HttpPost("/api/Server/Validate")]
+        public IActionResult ValidateData(ValidationModel model)
         {
+            string email = model.Email;
+            string number = model.PhoneNumber;
+
             bool isEmailValid = _validationService.ValidateEmail(email);
             bool isNumberValid = _validationService.ValidatePhoneNumber(number);
 
@@ -40,7 +44,7 @@ namespace WebLoginWizard.Controllers
             return BadRequest();
         }
 
-        [HttpGet("/api/Server/Code/{code}")]
+        [HttpPost("/api/Server/Code/{code}")]
         public IActionResult VerifyCode(string code)
         {
             string correctCode = _contextAccessor.HttpContext.Session.GetString("code");
