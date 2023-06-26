@@ -11,3 +11,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .container {
   text-align: center;
 }
+
+a {
+  font-size: large;
+  padding: 1em;
+}
