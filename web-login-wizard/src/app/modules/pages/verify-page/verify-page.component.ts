@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { Validation } from '../../models/validation';
+import { ValidationModel } from '../../models/validation';
 import { ValidationService } from '../../services/validation.service';
 
 @Component({
@@ -12,9 +12,12 @@ import { ValidationService } from '../../services/validation.service';
 })
 export class VerifyPageComponent {
 
-  validationModel: Validation = {
-    phone: 'Phone Number',
-    email: 'Email'
+  email: String = 'Email@example.com';
+  phone: String = '0883941187';
+
+  validationModel: ValidationModel = {
+    email: this.email,
+    phone: this.phone
   }
 
   constructor (
@@ -24,7 +27,9 @@ export class VerifyPageComponent {
 
   onSubmit(form: NgForm) {
     if(form.valid) {
-      this.validationService.validateCredentials(this.validationModel);
+      this.validationService.validateCredentials(this.validationModel).subscribe(res => {
+        this.router.navigateByUrl('/code');
+      })
     } else {
       console.log("Form is not valid");
     }

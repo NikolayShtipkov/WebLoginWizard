@@ -1,4 +1,4 @@
-export interface Validation{
-  email: string;
-  phone: string;
+export interface ValidationModel{
+  email: String;
+  phone: String;
 }

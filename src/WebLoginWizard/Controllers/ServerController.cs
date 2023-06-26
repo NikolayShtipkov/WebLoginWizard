@@ -19,8 +19,8 @@ namespace WebLoginWizard.Controllers
             _contextAccessor = contextAccessor;
         }
 
-        [HttpPost("/api/Server/Validate")]
-        public IActionResult ValidateData(ValidationModel model)
+        [HttpPost]
+        public IActionResult ValidateData([FromBody]ValidationModel model)
         {
             string email = model.Email;
             string number = model.PhoneNumber;
@@ -42,6 +42,16 @@ namespace WebLoginWizard.Controllers
             }
 
             return BadRequest();
+        }
+
+        //Used to test if API endpoints can be hit
+        [HttpGet("/api/Server/ValidateCopy")]
+        public IActionResult ValidateDataCopy()
+        {
+            string email = "pesho";
+
+           
+            return Ok();
         }
 
         [HttpPost("/api/Server/Code/{code}")]
