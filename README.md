@@ -12,5 +12,5 @@ https://localhost:5001/api/Server/Code/{String} - Post request with a string par
 Interface for WebLoginWizard, simple UI to use API endpoints and create a web-login flow. Still not completed due to configuration issues with sending requests through API(400 error code and not hitting POST endpoints).
 
 # Startup
-Start .NET project, which is configured to run on "https://localhost:5001". Start angular project by running "ng serve" or "npm start" command in a terminal/bash/shell within the project folder or in VS Code. Front-end configured to run on "http://localhost:4200/".
+Start .NET project, which is configured to run on "https://localhost:5001". Start angular project by running "ng serve" or "npm start" command in a terminal/bash/shell within the project folder or in VS Code. Front-end configured to run on "http://localhost:4200/".(Front-end still not configured to work with API properly.)
 
