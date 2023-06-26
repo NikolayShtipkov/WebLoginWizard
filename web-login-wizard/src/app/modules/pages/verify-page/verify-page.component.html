@@ -1,20 +1,24 @@
 <div class="container">
-  <p>A 6-digit code has been sent to you</p>
+  <h3>Welcome to Website</h3>
 
-  <div class="input">
-    <mat-label>MOBILE NO.</mat-label>
-    <br>
-    <input matInput type="Enter your mobile no.">
-  </div>
+  <p>Enter your mobile no. & email id</p>
 
-  <div class="input">
-    <mat-label>EMAIL ADDRESS</mat-label>
-    <br>
-    <input matInput type="Enter your email id">
-  </div>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <div class="input">
+      <mat-label>MOBILE NO.</mat-label>
+      <br>
+      <input matInput type="Enter your mobile no." required [(ngModel)]="validationModel.phone">
+    </div>
 
-  <div class="btn">
-    <br>
-    <button mat-raised-button color="primary">CONTINUE</button>
-  </div>
+    <div class="input">
+      <mat-label>EMAIL ADDRESS</mat-label>
+      <br>
+      <input matInput type="Enter your email id" required [(ngModel)]="validationModel.email" />
+    </div>
+
+    <div class="btn">
+      <br>
+      <button mat-raised-button color="primary" type="submit">CONTINUE</button>
+    </div>
+  </form>
 </div>

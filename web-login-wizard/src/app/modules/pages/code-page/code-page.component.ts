@@ -1,21 +1,15 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-
-import { Validation } from '../../models/validation';
 import { ValidationService } from '../../services/validation.service';
 
 @Component({
-  selector: 'app-verify-page',
-  templateUrl: './verify-page.component.html',
-  styleUrls: ['./verify-page.component.css']
+  selector: 'app-code-page',
+  templateUrl: './code-page.component.html',
+  styleUrls: ['./code-page.component.css']
 })
-export class VerifyPageComponent {
-
-  validationModel: Validation = {
-    phone: 'Phone Number',
-    email: 'Email'
-  }
+export class CodePageComponent {
+  code: String = '';
 
   constructor (
     public validationService: ValidationService,
@@ -24,7 +18,7 @@ export class VerifyPageComponent {
 
   onSubmit(form: NgForm) {
     if(form.valid) {
-      this.validationService.validateCredentials(this.validationModel);
+      this.validationService.verifyCode(this.code);
     } else {
       console.log("Form is not valid");
     }
